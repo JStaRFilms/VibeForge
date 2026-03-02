@@ -25,10 +25,10 @@ Initialize the Next.js 14 App Router project with Tailwind and Framer Motion.
 See `docs/autopsy_report.md` and `docs/Project_Requirements.md`. This is Phase 2 of the VibeForge build.
 
 ## Definition of Done
-- `package.json` exists with required dependencies
-- `src/app` structure exists
-- `npm run dev` starts successfully without errors
-- Next.js default boilerplate removed from `page.tsx`
+- [x] `package.json` exists with required dependencies
+- [x] `src/app` structure exists
+- [x] `npm run dev` starts successfully without errors
+- [x] Next.js default boilerplate removed from `page.tsx`
 
 ## Constraints
 - Next.js 14 (App Router) ONLY. Do NOT use Pages router.
