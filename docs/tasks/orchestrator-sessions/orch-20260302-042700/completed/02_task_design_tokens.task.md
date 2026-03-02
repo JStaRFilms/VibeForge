@@ -28,10 +28,10 @@ Implement the custom VibeForge design system (Terminal Noir + Art Deco) tokens a
 Read `docs/DESIGN.md` CAREFULLY. This overrides default Tailwind colors.
 
 ## Definition of Done
-- Globals CSS contains all required CSS variables.
-- Fonts load correctly without FOUT.
-- Base UI components created and strictly typed.
-- `npx tsc --noEmit` passes.
+- [x] Globals CSS contains all required CSS variables. ✅ Completed
+- [x] Fonts load correctly without FOUT. ✅ Completed
+- [x] Base UI components created and strictly typed. ✅ Completed
+- [x] `npx tsc --noEmit` passes. ✅ Completed
 
 ## Constraints
 - Follow anti-slop rules exactly. No purple-to-blue gradients unless explicitly styled as a subtle glow.
