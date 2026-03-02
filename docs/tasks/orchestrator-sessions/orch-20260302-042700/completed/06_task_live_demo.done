@@ -1,0 +1,26 @@
+# Task Completion Summary
+
+**Task:** 06_task_live_demo
+**Completed At:** 2026-03-02T10:38:00+01:00
+**Mode:** Code
+
+## Results
+
+Implemented a sleak Live Demo section with a Mac-like code editor mockup. Successfully created a custom `useTypewriter` hook to type out code when the component enters the viewport. Resolved a syntax highlighting regex parsing logic issue where injected code styles were being matched.
+
+## Files Created/Modified
+
+- `src/features/live-demo/hooks/useTypewriter.ts` (created)
+- `src/features/live-demo/LiveDemoSection.tsx` (created)
+- `src/app/page.tsx` (modified to include LiveDemoSection component)
+
+## Verification Status
+
+- [x] TypeScript: PASS
+- [x] Lint: PASS
+- [x] Build: PASS
+- [x] Tests: PASS
+
+## Notes
+- `useTypewriter` does not enter infinite loops, and `useInView` triggers the animation correctly.
+- Syntax parser properly handles all formatting rules.
