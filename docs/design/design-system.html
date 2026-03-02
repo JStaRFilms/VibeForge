@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeForge — Design System</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&f[]=general-sans@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind v4 -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'General Sans', sans-serif;
+            --font-heading: 'Satoshi', sans-serif;
+            --font-display: 'Instrument Serif', serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* Fallback for Geist Mono in CDN */
+            
+            --color-base: #07080C;
+            --color-surface: #0F1117;
+            --color-elevated: #161820;
+            --color-glass: rgba(255, 255, 255, 0.03);
+            
+            --color-accent: #C084FC;
+            --color-accent-alt: #38BDF8;
+            --color-accent-warm: #F0ABFC;
+            
+            --color-text-primary: #E8E8ED;
+            --color-text-muted: #6B7280;
+            --color-text-dim: #3B3F4A;
+            
+            --color-border: rgba(255, 255, 255, 0.06);
+            --color-glow: rgba(192, 132, 252, 0.15);
+
+            --radius-2xl: 16px;
+        }
+
+        body {
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.04em;
+        }
+
+        .bg-glass {
+            background: var(--color-glass);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        
+        .box-glow {
+            box-shadow: 0 0 40px var(--color-glow);
+        }
+
+        /* Grain overlay */
+        .bg-grain {
+            position: relative;
+        }
+        .bg-grain::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-base text-text-primary min-h-screen bg-grain p-8 md:p-12 lg:p-24 selection:bg-accent/30 selection:text-white">
+
+    <div class="max-w-6xl mx-auto space-y-32">
+
+        <!-- Header -->
+        <header class="border-b border-border pb-8">
+            <h1 class="font-display text-6xl md:text-8xl italic text-white mb-4">VibeForge</h1>
+            <p class="text-text-muted text-xl max-w-2xl font-sans">Design System & Component Library. Terminal Noir
+                meets Art Deco. Muted luxury with sharp geometry.</p>
+        </header>
+
+        <!-- Branding & Logo -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-heading text-text-primary border-b border-border pb-4">1. Branding</h2>
+            <div
+                class="p-12 bg-surface rounded-2xl border border-border flex items-center justify-center relative overflow-hidden group">
+                <!-- Abstract Logo Mark -->
+                <div
+                    class="relative z-10 flex items-center gap-4 transition-transform duration-500 group-hover:scale-105">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent-alt flex items-center justify-center shadow-[0_0_30px_rgba(192,132,252,0.3)]">
+                        <i data-lucide="layers" class="text-white w-6 h-6"></i>
+                    </div>
+                    <span class="font-display text-4xl italic tracking-tight text-white drop-shadow-md">VibeForge</span>
+                </div>
+                <!-- Background Blob -->
+                <div
+                    class="absolute w-64 h-64 bg-accent/10 blur-3xl rounded-full mix-blend-screen opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-heading text-text-primary border-b border-border pb-4">2. Color Palette</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Base / Surfaces -->
+                <div class="space-y-3">
+                    <div class="h-24 rounded-2xl bg-base border border-border flex items-end p-4"><span
+                            class="text-xs text-text-muted font-mono">--color-base</span></div>
+                    <div class="h-24 rounded-2xl bg-surface border border-border flex items-end p-4"><span
+                            class="text-xs text-text-muted font-mono">--color-surface</span></div>
+                    <div class="h-24 rounded-2xl bg-elevated border border-border flex items-end p-4"><span
+                            class="text-xs text-text-muted font-mono">--color-elevated</span></div>
+                    <div
+                        class="h-24 rounded-2xl bg-glass border border-border flex items-end p-4 relative overflow-hidden backdrop-blur-md">
+                        <div class="absolute -inset-10 bg-gradient-to-r from-accent/20 to-transparent blur-xl"></div>
+                        <span class="text-xs text-white font-mono relative z-10">--color-glass</span>
+                    </div>
+                </div>
+
+                <!-- Accents -->
+                <div class="space-y-3">
+                    <div class="h-24 rounded-2xl bg-accent flex items-end p-4"><span
+                            class="text-xs text-base font-mono font-bold">--color-accent</span></div>
+                    <div class="h-24 rounded-2xl bg-accent-alt flex items-end p-4"><span
+                            class="text-xs text-base font-mono font-bold">--color-accent-alt</span></div>
+                    <div class="h-24 rounded-2xl bg-accent-warm flex items-end p-4"><span
+                            class="text-xs text-base font-mono font-bold">--color-accent-warm</span></div>
+                </div>
+
+                <!-- Text -->
+                <div class="space-y-3 col-span-2 md:col-span-2">
+                    <div class="p-6 rounded-2xl bg-surface border border-border space-y-4">
+                        <p class="text-text-primary text-lg">Text Primary (E8E8ED) - Used for headings and primary
+                            content.</p>
+                        <p class="text-text-muted text-base">Text Muted (6B7280) - Used for body copy and secondary
+                            descriptions.</p>
+                        <p class="text-text-dim text-sm">Text Dim (3B3F4A) - Used for borders, subtle dividers, and
+                            disabled states.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-heading text-text-primary border-b border-border pb-4">3. Typography</h2>
+            <div class="space-y-12">
+                <div>
+                    <p class="text-text-muted font-mono text-sm mb-2">Display (Instrument Serif)</p>
+                    <h1 class="font-display text-8xl md:text-9xl text-white italic">Design intuitively</h1>
+                </div>
+                <div>
+                    <p class="text-text-muted font-mono text-sm mb-2">Headings (Satoshi)</p>
+                    <div class="space-y-4">
+                        <h1 class="text-5xl font-heading text-white">Heading 1: VibeCoding Protocol</h1>
+                        <h2 class="text-4xl font-heading text-white">Heading 2: The Future of Agents</h2>
+                        <h3 class="text-3xl font-heading text-text-primary">Heading 3: Seamless Integration</h3>
+                        <h4 class="text-2xl font-heading text-text-primary">Heading 4: Security Features</h4>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-text-muted font-mono text-sm mb-2">Body (General Sans)</p>
+                    <p class="text-lg text-text-muted max-w-3xl leading-relaxed">
+                        This is the body copy. It is designed to be highly readable even in dark mode environments.
+                        General Sans provides a clean, geometric structure that pairs excellently with the sharp
+                        precision of Satoshi for headings and the editorial flair of Instrument Serif.
+                    </p>
+                </div>
+                <div>
+                    <p class="text-text-muted font-mono text-sm mb-2">Code (Geist Mono / Fallback)</p>
+                    <code
+                        class="px-3 py-1 bg-elevated border border-border rounded text-accent text-sm font-mono">npm install @vibeforge/cli</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components -->
+        <section class="space-y-12">
+            <h2 class="text-2xl font-heading text-text-primary border-b border-border pb-4">4. Core Components</h2>
+
+            <!-- Buttons -->
+            <div class="space-y-6">
+                <h3 class="text-text-muted font-mono text-sm uppercase tracking-wider">Buttons</h3>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <button
+                        class="px-6 py-3 rounded-xl bg-white text-base font-semibold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">Primary
+                        Action</button>
+
+                    <button
+                        class="px-6 py-3 rounded-xl bg-surface border border-border text-text-primary font-medium hover:bg-elevated hover:border-text-dim transition-all duration-300 flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4 text-text-muted"></i>
+                        Secondary Action
+                    </button>
+
+                    <button
+                        class="px-6 py-3 rounded-xl bg-accent/10 border border-accent/20 text-accent font-medium hover:bg-accent hover:text-base transition-all duration-300">
+                        Accent CTA
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="space-y-6">
+                <h3 class="text-text-muted font-mono text-sm uppercase tracking-wider">Cards (Glassmorphism)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Standard Card -->
+                    <div
+                        class="p-8 rounded-2xl bg-surface border border-border hover:border-text-dim transition-all duration-300 group">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-elevated border border-border flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="zap" class="w-6 h-6 text-accent"></i>
+                        </div>
+                        <h4 class="text-xl font-heading text-white mb-2">High Performance</h4>
+                        <p class="text-text-muted leading-relaxed">Built on Next.js 14 React Server Components for
+                            zero-bundle-size rendering and extreme speeds.</p>
+                    </div>
+
+                    <!-- Glass Card w/ Glow -->
+                    <div
+                        class="p-8 rounded-2xl bg-glass border border-border hover:box-glow transition-all duration-500 relative overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div class="relative z-10">
+                            <h4 class="font-display text-4xl italic text-white mb-3">Premium Feel</h4>
+                            <p class="text-text-primary/70 leading-relaxed text-sm">Anti-slop design. Minimalist
+                                geometry combined with subtle backdrop filters for true depth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Elements (Tab Switcher Example) -->
+            <div class="space-y-6">
+                <h3 class="text-text-muted font-mono text-sm uppercase tracking-wider">Tab Switcher (Install Options)
+                </h3>
+                <div class="inline-flex p-1 bg-surface border border-border rounded-xl">
+                    <button
+                        class="px-6 py-2.5 rounded-lg bg-elevated text-white text-sm font-medium shadow-sm transition-all">npm</button>
+                    <button
+                        class="px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">pnpm</button>
+                    <button
+                        class="px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">yarn</button>
+                    <button
+                        class="px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">bun</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Navigation Placeholder -->
+        <section class="space-y-8">
+            <h2 class="text-2xl font-heading text-text-primary border-b border-border pb-4">5. Navigation</h2>
+            <nav
+                class="sticky top-6 mx-auto max-w-2xl px-6 py-4 rounded-full bg-glass border border-border backdrop-blur-xl flex items-center justify-between z-50">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-8 h-8 rounded-md bg-gradient-to-br from-accent to-accent-alt flex items-center justify-center">
+                        <i data-lucide="layers" class="text-white w-4 h-4"></i>
+                    </div>
+                    <span class="font-heading font-bold text-white tracking-wide">VibeForge</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#"
+                        class="text-sm font-medium text-text-muted hover:text-white transition-colors">Features</a>
+                    <a href="#"
+                        class="text-sm font-medium text-text-muted hover:text-white transition-colors">Skills</a>
+                    <a href="#" class="text-sm font-medium text-text-muted hover:text-white transition-colors">Docs</a>
+                </div>
+                <button
+                    class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white text-white hover:text-base font-medium text-sm transition-all duration-300">
+                    Get Access
+                </button>
+            </nav>
+        </section>
+
+    </div>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

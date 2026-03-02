@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeForge — The Next-Gen Agent Interface</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&f[]=general-sans@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind v4 -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'General Sans', sans-serif;
+            --font-heading: 'Satoshi', sans-serif;
+            --font-display: 'Instrument Serif', serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            
+            --color-base: #07080C;
+            --color-surface: #0F1117;
+            --color-elevated: #161820;
+            --color-glass: rgba(255, 255, 255, 0.03);
+            
+            --color-accent: #C084FC;
+            --color-accent-alt: #38BDF8;
+            --color-accent-warm: #F0ABFC;
+            
+            --color-text-primary: #E8E8ED;
+            --color-text-muted: #6B7280;
+            --color-text-dim: #3B3F4A;
+            
+            --color-border: rgba(255, 255, 255, 0.06);
+            --color-glow: rgba(192, 132, 252, 0.15);
+        }
+
+        body {
+            background-color: var(--color-base);
+            color: var(--color-text-primary);
+            font-family: var(--font-sans);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.02em;
+        }
+
+        .font-display {
+            font-family: var(--font-display);
+            letter-spacing: -0.04em;
+        }
+
+        .bg-glass {
+            background: var(--color-glass);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        
+        .box-glow {
+            box-shadow: 0 0 40px var(--color-glow);
+        }
+
+        /* Grain overlay */
+        .bg-grain {
+            position: relative;
+        }
+        .bg-grain::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 50;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-base text-text-primary bg-grain selection:bg-accent/30 selection:text-white font-sans overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl px-6 py-4 rounded-full bg-glass border border-border backdrop-blur-xl flex items-center justify-between z-50 shadow-2xl">
+        <div class="flex items-center gap-2">
+            <div
+                class="w-8 h-8 rounded-md bg-gradient-to-br from-accent to-accent-alt flex items-center justify-center">
+                <i data-lucide="layers" class="text-white w-4 h-4"></i>
+            </div>
+            <span class="font-heading font-bold text-white tracking-wide">VibeForge</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#features"
+                class="text-sm font-medium text-text-muted hover:text-white transition-colors">Features</a>
+            <a href="#skills" class="text-sm font-medium text-text-muted hover:text-white transition-colors">Skills</a>
+            <a href="#demo" class="text-sm font-medium text-text-muted hover:text-white transition-colors">Demo</a>
+        </div>
+        <button
+            class="px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white text-white hover:text-base font-semibold text-sm transition-all duration-300">
+            Install
+        </button>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="min-h-[100svh] relative flex items-center justify-center pt-32 pb-24 overflow-hidden">
+        <!-- Abstract generative SVG background (Liquid blobs logic would go here in React) -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-[600px] h-[600px] bg-accent/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-[20%] -translate-y-[40%] w-[400px] h-[400px] bg-accent-alt/10 blur-[100px] rounded-full mix-blend-screen pointer-events-none">
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-border mb-8 backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-accent-alt animate-pulse"></span>
+                <span class="text-xs font-mono text-text-muted">v2.0 Protocol Active</span>
+            </div>
+
+            <h1 class="font-display text-7xl md:text-9xl text-white italic mb-6 leading-[0.9] drop-shadow-2xl">
+                Code at the <br /> speed of thought.
+            </h1>
+            <p class="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-12 font-medium">
+                The VibeCoding Protocol Suite. 64 AI-coding skills. 26 custom workflows. Zero slop.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <button
+                    class="px-8 py-4 rounded-xl bg-white text-base font-semibold hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] text-lg">
+                    Initialize Protocol
+                </button>
+                <button
+                    class="px-8 py-4 rounded-xl bg-surface border border-border text-text-primary font-medium hover:bg-elevated hover:border-text-dim transition-all duration-300 flex items-center gap-3 text-lg group">
+                    <i data-lucide="play" class="w-5 h-5 group-hover:text-accent-alt transition-colors"></i> Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Stats Section -->
+    <section class="py-24 border-y border-border bg-surface relative z-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center md:text-left divide-x divide-border wrapper-stats">
+                <div class="pl-0 md:pl-0">
+                    <p class="font-display text-5xl italic text-white mb-2">64<span class="text-accent">+</span></p>
+                    <p class="text-text-muted font-mono text-sm uppercase tracking-wider">Coding Skills</p>
+                </div>
+                <div class="pl-6 md:pl-12">
+                    <p class="font-display text-5xl italic text-white mb-2">26</p>
+                    <p class="text-text-muted font-mono text-sm uppercase tracking-wider">Custom Workflows</p>
+                </div>
+                <div class="pl-6 md:pl-12">
+                    <p class="font-display text-5xl italic text-white mb-2">&lt;3s</p>
+                    <p class="text-text-muted font-mono text-sm uppercase tracking-wider">Tool Latency</p>
+                </div>
+                <div class="pl-6 md:pl-12">
+                    <p class="font-display text-5xl italic text-white mb-2">0</p>
+                    <p class="text-text-muted font-mono text-sm uppercase tracking-wider">AI Slop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Skills Showcase Grid -->
+    <section id="skills" class="py-32 relative z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-16 md:mb-24 flex justify-between items-end">
+                <div>
+                    <h2 class="font-display text-5xl md:text-7xl italic text-white mb-4">Precision <br />Toolset</h2>
+                    <p class="text-text-muted max-w-xl text-lg">A modular architecture designed for the discerning
+                        developer. Replace generic chat interfaces with targeted surgical strikes.</p>
+                </div>
+                <div class="hidden md:block">
+                    <button class="p-4 rounded-full border border-border hover:bg-surface transition-colors">
+                        <i data-lucide="arrow-right" class="w-6 h-6 text-white"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 (Large) -->
+                <div
+                    class="col-span-1 md:col-span-2 p-10 rounded-2xl bg-glass border border-border hover:border-text-dim hover:box-glow transition-all duration-500 group relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    </div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-surface border border-border flex items-center justify-center mb-12">
+                            <i data-lucide="terminal-square" class="w-7 h-7 text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-heading text-white mb-3">Architect Mode</h3>
+                            <p class="text-text-muted text-lg leading-relaxed max-w-md">Plan, design, and strategize
+                                before implementation. Generate comprehensive Product Requirements Documents in seconds.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="col-span-1 p-10 rounded-2xl bg-surface border border-border hover:border-text-dim hover:bg-elevated transition-colors group">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-base border border-border flex items-center justify-center mb-12">
+                        <i data-lucide="shield-check"
+                            class="w-7 h-7 text-text-primary group-hover:text-accent-warm transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading text-white mb-3">J-Star Code Review</h3>
+                    <p class="text-text-muted leading-relaxed">Expert code review and quality assessment before commits.
+                        Never merge spaghetti code again.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="col-span-1 p-10 rounded-2xl bg-surface border border-border hover:border-text-dim hover:bg-elevated transition-colors group">
+                    <div
+                        class="w-14 h-14 rounded-xl bg-base border border-border flex items-center justify-center mb-12">
+                        <i data-lucide="youtube"
+                            class="w-7 h-7 text-text-primary group-hover:text-accent-alt transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading text-white mb-3">Omni-Pipeline</h3>
+                    <p class="text-text-muted leading-relaxed">Complete video production pipeline from ideation and
+                        script generation to Remotion programmatic rendering.</p>
+                </div>
+
+                <!-- Card 4 (Horizontal) -->
+                <div
+                    class="col-span-1 md:col-span-2 p-10 rounded-2xl bg-surface border border-border hover:border-text-dim hover:bg-elevated transition-colors group flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                    <div>
+                        <div
+                            class="w-14 h-14 rounded-xl bg-base border border-border flex items-center justify-center mb-6">
+                            <i data-lucide="zap" class="w-7 h-7 text-accent-warn"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading text-white mb-2">Zero-Config Initializer</h3>
+                        <p class="text-text-muted max-w-xs">Instantly scaffold Next.js App Router projects with correct
+                            linting and auth templates.</p>
+                    </div>
+                    <div
+                        class="w-full md:w-auto flex-shrink-0 p-4 bg-elevated rounded-xl border border-border font-mono text-sm text-text-muted">
+                        <span class="text-accent">~</span>/projects > npx vibeforge init
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Demo Terminal Section -->
+    <section id="demo" class="py-32 bg-base border-t border-border relative">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Text Content -->
+            <div class="order-2 lg:order-1">
+                <h2 class="font-display text-5xl md:text-6xl italic text-white mb-6">Orchestrate the complex.</h2>
+                <p class="text-text-muted text-lg mb-8 leading-relaxed">Delegate multi-step projects to specialized
+                    sub-agents. The orchestrator breaks down vague concepts into PRDs, GitHub Issues, and sequential
+                    implementation tasks.</p>
+
+                <ul class="space-y-6">
+                    <li class="flex gap-4 items-start">
+                        <div
+                            class="mt-1 w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-heading text-lg mb-1">Blueprint Rule</h4>
+                            <p class="text-text-muted text-sm leading-relaxed">Never writes complex code without a plan.
+                                Measures twice, cuts once.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div
+                            class="mt-1 w-8 h-8 rounded-full bg-surface border border-border flex items-center justify-center shrink-0">
+                            <i data-lucide="check" class="w-4 h-4 text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-heading text-lg mb-1">Anti-Slop Guarantee</h4>
+                            <p class="text-text-muted text-sm leading-relaxed">Forbidden from guessing. Enforces Type
+                                Checking. No blind copy-paste.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Terminal Window -->
+            <div class="order-1 lg:order-2">
+                <div class="w-full rounded-2xl bg-elevated border border-border overflow-hidden shadow-2xl relative">
+                    <!-- Window Controls -->
+                    <div class="px-4 py-3 bg-surface border-b border-border flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-text-dim"></div>
+                        <div class="w-3 h-3 rounded-full bg-text-dim"></div>
+                        <div class="w-3 h-3 rounded-full bg-text-dim"></div>
+                        <div class="ml-4 text-xs font-mono text-text-muted">orchestrator-session</div>
+                    </div>
+                    <!-- Terminal Content -->
+                    <div class="p-6 font-mono text-sm leading-relaxed h-[360px] overflow-y-auto">
+                        <div class="text-text-muted mb-2">Initializing VibeCode Architect Persona...</div>
+                        <div class="text-accent mb-4">> Loading context from docs/Project_Requirements.md</div>
+
+                        <div class="text-white mb-1"><span class="text-accent-alt">System:</span> Generating Visual
+                            Sitemap...</div>
+                        <div class="text-text-muted pl-4 mb-4 border-l border-border ml-2 whitespace-pre">
+                            | Page | Purpose | Key Components |
+                            |:-----|:--------|:---------------|
+                            | Home | Landing | Hero, Grid |
+                        </div>
+
+                        <div class="text-white mb-2"><span class="text-accent-alt">System:</span> Compiling Design
+                            System File</div>
+                        <div class="text-[#84CC16] mb-4">✓ Created docs/design/design-system.html</div>
+
+                        <div class="flex items-center gap-2 mt-6">
+                            <span class="text-accent">~</span>
+                            <span class="animate-pulse w-2 h-4 bg-white/50 inline-block"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Video Component Section -->
+    <section class="py-32 border-y border-border bg-surface relative z-10 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="font-display text-5xl md:text-6xl italic text-white mb-6">See it in Action</h2>
+            <p class="text-text-muted max-w-2xl mx-auto mb-16 text-lg">Watch the full orchestration process generated
+                dynamically via Remotion.</p>
+
+            <!-- Video Placeholder -->
+            <div
+                class="w-full max-w-4xl mx-auto aspect-video rounded-3xl bg-base border border-border flex flex-col items-center justify-center relative group cursor-pointer shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                <!-- Play Button -->
+                <div
+                    class="relative z-20 w-20 h-20 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300">
+                    <i data-lucide="play" class="w-8 h-8 text-white ml-2"></i>
+                </div>
+                <div class="absolute bottom-8 left-8 z-20 text-left">
+                    <h3 class="text-2xl font-heading text-white drop-shadow-md">VibeForge Demo Reel</h3>
+                    <p class="text-text-primary text-sm font-mono mt-2 drop-shadow-md">02:45 / Remotion Canvas Render
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Install Tab Switcher Section -->
+    <section id="install" class="py-32 bg-base">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-5xl md:text-6xl italic text-white mb-8">Ready to forge?</h2>
+
+            <div class="bg-surface border border-border rounded-3xl p-8 md:p-12 relative shadow-2xl overflow-hidden">
+                <div
+                    class="absolute -top-40 -right-40 w-80 h-80 bg-accent-alt/10 blur-[80px] rounded-full mix-blend-screen pointer-events-none">
+                </div>
+
+                <!-- Tabs -->
+                <div class="inline-flex p-1 bg-elevated border border-border rounded-xl mb-10 w-full md:w-auto">
+                    <button
+                        class="flex-1 md:flex-none px-6 py-2.5 rounded-lg bg-white/10 text-white text-sm font-medium shadow-sm transition-all focus:outline-none ring-2 ring-accent/50">npm</button>
+                    <button
+                        class="flex-1 md:flex-none px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">yarn</button>
+                    <button
+                        class="flex-1 md:flex-none px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">pnpm</button>
+                    <button
+                        class="flex-1 md:flex-none px-6 py-2.5 rounded-lg text-text-muted hover:text-text-primary text-sm font-medium transition-all">bun</button>
+                </div>
+
+                <!-- Code Block -->
+                <div
+                    class="bg-base border border-border rounded-xl p-6 text-left flex items-center justify-between group">
+                    <code class="font-mono text-text-primary text-lg">npx @vibecoding/cli init latest</code>
+                    <button
+                        class="p-2 -mr-2 rounded-lg text-text-muted hover:text-white hover:bg-surface transition-colors"
+                        title="Copy to clipboard">
+                        <i data-lucide="copy" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <p class="text-text-muted text-sm mt-6 font-mono">Requires Node.js 18.17 or later.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer Section -->
+    <footer class="pt-24 pb-12 bg-base border-t border-border relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 relative z-10">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <div
+                        class="w-8 h-8 rounded-md bg-gradient-to-br from-accent to-accent-alt flex items-center justify-center">
+                        <i data-lucide="layers" class="text-white w-4 h-4"></i>
+                    </div>
+                    <span class="font-heading font-bold text-white tracking-wide">VibeForge</span>
+                </div>
+                <p class="text-text-muted max-w-sm mb-6">The ultimate protocol suite for agentic coding. Reclaim your
+                    development speed. Banish the slop.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-white hover:border-text-dim transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-surface border border-border flex items-center justify-center text-text-muted hover:text-white hover:border-text-dim transition-colors">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-heading text-white mb-6">Resources</h4>
+                <ul class="space-y-4">
+                    <li><a href="#"
+                            class="text-text-muted hover:text-accent transition-colors text-sm">Documentation</a></li>
+                    <li><a href="#" class="text-text-muted hover:text-accent transition-colors text-sm">Skill
+                            Registry</a></li>
+                    <li><a href="#" class="text-text-muted hover:text-accent transition-colors text-sm">Design
+                            System</a></li>
+                    <li><a href="#" class="text-text-muted hover:text-accent transition-colors text-sm">API
+                            Reference</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-heading text-white mb-6">Legal</h4>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-text-muted hover:text-white transition-colors text-sm">Privacy
+                            Policy</a></li>
+                    <li><a href="#" class="text-text-muted hover:text-white transition-colors text-sm">Terms of
+                            Service</a></li>
+                    <li><a href="#" class="text-text-muted hover:text-white transition-colors text-sm">License</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div
+            class="max-w-6xl mx-auto px-6 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+            <p class="text-text-dim text-sm">© 2026 CreativeOS. All rights reserved.</p>
+            <p class="text-text-dim text-sm font-mono flex items-center gap-2">Protocol <span
+                    class="h-1.5 w-1.5 rounded-full bg-accent-alt"></span> Secure</p>
+        </div>
+
+        <!-- Huge Parallax Background Typography -->
+        <div
+            class="absolute bottom-0 left-0 w-full overflow-hidden flex justify-center translate-y-1/3 opacity-5 pointer-events-none select-none">
+            <span class="font-display italic text-[20vw] leading-none text-white whitespace-nowrap">VIBEFORGE</span>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
