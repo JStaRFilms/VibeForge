@@ -29,10 +29,10 @@ Build the Hero Section for the landing page.
 See `docs/DESIGN.md`. This is the most critical first impression. Use the grain overlay defined in globals.
 
 ## Definition of Done
-- Hero section renders and animates fluidly.
-- Terminal mockup syntax highlighting looks authentic.
-- Floating cards respond to scroll/parallax.
-- `npx tsc --noEmit` passes.
+- [x] Hero section renders and animates fluidly. ✅ Completed
+- [x] Terminal mockup syntax highlighting looks authentic. ✅ Completed
+- [x] Floating cards respond to scroll/parallax. ✅ Completed
+- [x] `npx tsc --noEmit` passes. ✅ Completed
 
 ## Constraints
 - Maximize performance. SVG filter animations can be heavy — limit complexity.
