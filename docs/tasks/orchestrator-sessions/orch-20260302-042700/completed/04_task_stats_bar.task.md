@@ -27,11 +27,11 @@ Build the Stats & Social Proof Bar section.
 See `docs/DESIGN.md`. This is a narrow, high-impact strip immediately below the Hero section.
 
 ## Definition of Done
-- `StatsBar` component renders horizontally.
-- Numbers animate smoothly from 0 to their target values only when visible in the viewport.
-- Section looks premium on mobile (stacked) and desktop (inline).
-- `npx tsc --noEmit` passes.
+- [x] `StatsBar` component renders horizontally. ✅ Completed
+- [x] Numbers animate smoothly from 0 to their target values only when visible in the viewport. ✅ Completed
+- [x] Section looks premium on mobile (stacked) and desktop (inline). ✅ Completed
+- [x] `npx tsc --noEmit` passes. ✅ Completed
 
 ## Constraints
-- Keep animations lightweight (don't block the main thread).
-- Integrate it below the hero in `src/app/page.tsx`.
+- [x] Keep animations lightweight (don't block the main thread). ✅ Completed
+- [x] Integrate it below the hero in `src/app/page.tsx`. ✅ Completed
