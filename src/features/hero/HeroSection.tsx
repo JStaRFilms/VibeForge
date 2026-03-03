@@ -19,7 +19,6 @@ export default function HeroSection() {
 
     const y1 = useTransform(smoothProgress, [0, 1], [0, -100]);
     const y2 = useTransform(smoothProgress, [0, 1], [0, -200]);
-    const y3 = useTransform(smoothProgress, [0, 1], [0, -150]);
 
     return (
         <section

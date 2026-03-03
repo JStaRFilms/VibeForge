@@ -3,12 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Copy, Terminal } from 'lucide-react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
+import { cn } from '@/lib/utils';
 
 const INSTALL_OPTIONS = [
     { id: 'quick', label: 'Quick start', command: 'npx vibesuite init' },
@@ -28,8 +23,8 @@ export default function InstallSection() {
             await navigator.clipboard.writeText(activeOption.command);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
-            console.error('Failed to copy text: ', err);
+        } catch {
+            // Clipboard API may not be available in all contexts
         }
     };
 

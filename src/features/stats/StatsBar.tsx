@@ -82,7 +82,7 @@ export default function StatsBar() {
             >
                 {/* Cinematic gradient background for the bar */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[--color-accent]/5 via-transparent to-[--color-accent-alt]/5 pointer-events-none" />
-                <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
+                <div className="absolute inset-0 bg-[url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;)] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[--color-border] relative z-10">
                     <StatItem value={64} label="Premium Skills" delay={0.1} />

@@ -67,11 +67,6 @@ const KEYWORDS = new Set([
     'extends', 'true', 'false', 'null', 'undefined',
 ]);
 
-const JSX_ATTRIBUTES = new Set([
-    'className', 'onClick', 'onChange', 'onSubmit', 'onBlur',
-    'onFocus', 'style', 'key', 'ref', 'id', 'type', 'value',
-    'placeholder', 'href', 'src', 'alt', 'disabled', 'name',
-]);
 
 /**
  * Token-based syntax highlighter. Processes the raw code string
@@ -127,12 +122,10 @@ function tokenize(code: string): Token[] {
         if (ch === '<') {
             const isClosing = peek(1) === '/';
             const tagStart = i;
-            let tagText = ch;
             i++;
 
             if (isClosing) {
-                tagText += code[i]; // the '/'
-                i++;
+                i++; // skip the '/'
             }
 
             // Check if what follows is a valid tag name start
@@ -179,8 +172,7 @@ function tokenize(code: string): Token[] {
                             attr += code[i];
                             i++;
                         }
-                        const attrType: TokenType = JSX_ATTRIBUTES.has(attr) ? 'attribute' : 'attribute';
-                        tokens.push({ text: attr, type: attrType });
+                        tokens.push({ text: attr, type: 'attribute' });
                         continue;
                     }
 
