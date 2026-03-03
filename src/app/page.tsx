@@ -3,6 +3,7 @@ import StatsBar from '@/features/stats/StatsBar';
 import SkillsGrid from '@/features/skills-grid/SkillsGrid';
 import LiveDemoSection from '@/features/live-demo/LiveDemoSection';
 import RemotionSection from '@/features/remotion-embed/RemotionSection';
+import InstallSection from '@/features/install/InstallSection';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <RemotionSection />
       <SkillsGrid />
       <LiveDemoSection />
+      <InstallSection />
     </main>
   );
 }
