@@ -8,7 +8,7 @@ export const RemotionRoot: React.FC = () => {
             <Composition
                 id="VibeForgeExplainer"
                 component={VibeForgeExplainer}
-                durationInFrames={1200}
+                durationInFrames={450}
                 fps={30}
                 width={1920}
                 height={1080}
