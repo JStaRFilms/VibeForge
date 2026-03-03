@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, type ReactNode } from 'react';
+import { useRef, useEffect, type ReactNode } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTypewriter } from './hooks/useTypewriter';
 
@@ -304,14 +304,22 @@ function renderHighlightedCode(code: string): ReactNode[] {
 
 export default function LiveDemoSection() {
     const sectionRef = useRef<HTMLElement>(null);
+    const codeContainerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
     const { displayedText, isTyping, isComplete } = useTypewriter(
         DEMO_CODE,
-        25, // typing speed
-        500, // start delay
+        4, // typing speed (~4s total for ~700 chars)
+        200, // start delay
         isInView
     );
+
+    // Auto-scroll the code editor to follow the typing cursor
+    useEffect(() => {
+        if (codeContainerRef.current && isTyping) {
+            codeContainerRef.current.scrollTop = codeContainerRef.current.scrollHeight;
+        }
+    }, [displayedText, isTyping]);
 
     return (
         <section ref={sectionRef} className="py-24 sm:py-32 relative overflow-hidden">
@@ -345,7 +353,7 @@ export default function LiveDemoSection() {
                                 </div>
 
                                 {/* Code Content — scrollbar hidden */}
-                                <div className="p-6 md:p-8 overflow-auto flex-1 scrollbar-hide">
+                                <div ref={codeContainerRef} className="p-6 md:p-8 overflow-auto flex-1 scrollbar-hide">
                                     <pre className="font-mono text-sm md:text-base leading-relaxed text-[#CBD5E1] whitespace-pre-wrap break-words min-h-full">
                                         <code>
                                             {renderHighlightedCode(displayedText)}

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/instrument-serif": "^5.2.8",
+    "@remotion/player": "^4.0.431",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.563.0",

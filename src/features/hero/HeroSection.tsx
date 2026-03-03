@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { Terminal, Code2, Sparkles, Cpu } from 'lucide-react';
 
@@ -11,9 +11,15 @@ export default function HeroSection() {
         offset: ['start start', 'end start'],
     });
 
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const y1 = useTransform(smoothProgress, [0, 1], [0, -100]);
+    const y2 = useTransform(smoothProgress, [0, 1], [0, -200]);
+    const y3 = useTransform(smoothProgress, [0, 1], [0, -150]);
 
     return (
         <section
@@ -158,24 +164,49 @@ export default function HeroSection() {
                     {/* Parallax Floating Cards */}
                     <motion.div
                         style={{ y: y1 }}
+                        initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
                         className="absolute -top-10 -right-4 sm:-right-10 w-48 p-4 bg-glass backdrop-blur-3xl rounded-2xl border border-border shadow-2xl z-30"
                     >
-                        <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                            <Terminal className="w-5 h-5 text-accent" />
-                        </div>
-                        <h3 className="font-heading text-text-primary text-lg mb-1">Strict Typed</h3>
-                        <p className="font-sans text-xs text-text-muted">No any. No exceptions.</p>
+                        <motion.div
+                            animate={{ y: [0, -8, 0] }}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                        >
+                            <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-4">
+                                <Terminal className="w-5 h-5 text-accent" />
+                            </div>
+                            <h3 className="font-heading text-text-primary text-lg mb-1">Strict Typed</h3>
+                            <p className="font-sans text-xs text-text-muted">No any. No exceptions.</p>
+                        </motion.div>
                     </motion.div>
 
                     <motion.div
                         style={{ y: y2 }}
+                        initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.8 }}
                         className="absolute bottom-10 -left-6 sm:-left-12 w-48 p-4 bg-glass backdrop-blur-3xl rounded-2xl border border-border shadow-2xl z-30"
                     >
-                        <div className="w-10 h-10 rounded-full bg-accent-alt/20 flex items-center justify-center mb-4">
-                            <Code2 className="w-5 h-5 text-accent-alt" />
-                        </div>
-                        <h3 className="font-heading text-text-primary text-lg mb-1">RSC Default</h3>
-                        <p className="font-sans text-xs text-text-muted">Maximum velocity & limits.</p>
+                        <motion.div
+                            animate={{ y: [0, -12, 0] }}
+                            transition={{
+                                duration: 5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: 0.5,
+                            }}
+                        >
+                            <div className="w-10 h-10 rounded-full bg-accent-alt/20 flex items-center justify-center mb-4">
+                                <Code2 className="w-5 h-5 text-accent-alt" />
+                            </div>
+                            <h3 className="font-heading text-text-primary text-lg mb-1">RSC Default</h3>
+                            <p className="font-sans text-xs text-text-muted">Maximum velocity & limits.</p>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
