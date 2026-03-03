@@ -87,8 +87,8 @@ export default function StatsBar() {
                 <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[--color-border] relative z-10">
                     <StatItem value={64} label="Premium Skills" delay={0.1} />
                     <StatItem value={26} label="Pro Workflows" delay={0.2} />
-                    <StatItem value={1} label="Command Install" delay={0.3} />
-                    <StatItem value={100} label="Free Forever" suffix="%" delay={0.4} />
+                    <StatItem value={1} label="CLI Commands" delay={0.3} />
+                    <StatItem value={100} label="Open Source" suffix="%" delay={0.4} />
                 </div>
             </motion.div>
         </section>

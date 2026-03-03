@@ -115,10 +115,10 @@ export default function HeroSection() {
                         className="flex flex-col sm:flex-row items-center gap-4 mt-4 justify-center lg:justify-start"
                     >
                         <button className="h-12 px-8 rounded-2xl bg-text-primary text-base font-heading text-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
-                            Start Building
+                            Launch Pipeline
                         </button>
                         <button className="h-12 px-8 rounded-2xl bg-glass border border-border text-text-primary font-heading text-lg flex items-center justify-center hover-glow transition-all">
-                            Initialize Stack
+                            Deploy Infrastructure
                         </button>
                     </motion.div>
                 </div>

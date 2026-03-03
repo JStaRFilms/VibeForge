@@ -46,11 +46,10 @@ export default function InstallSection() {
                             transition={{ duration: 0.6 }}
                         >
                             <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight">
-                                Ready to forge your <span className="text-[var(--color-accent)]">next big idea?</span>
+                                Ready to deploy <span className="text-[var(--color-accent)]">infrastructure?</span>
                             </h2>
                             <p className="text-lg md:text-xl text-[var(--color-text-muted)] font-body max-w-xl">
-                                Get started in seconds with our CLI. Choose the installation that fits your workflow.
-                                Whether you need the bare minimum or the entire suite, VibeForge has you covered.
+                                Execute the CLI and initialize your environment in seconds. Select the exact payload for your architecture. From bare metal to the full protocol suite.
                             </p>
                         </motion.div>
 

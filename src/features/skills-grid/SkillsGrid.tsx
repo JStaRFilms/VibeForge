@@ -35,37 +35,37 @@ const itemVariants = {
 const skills = [
     {
         title: 'Project Lifecycle',
-        description: 'End-to-end scaffolding, continuous deployment, and codebase evolution driven by structured AI intent.',
+        description: 'Scaffold, deploy, and evolve your codebase. Fully automated by structured AI intents.',
         icon: TerminalSquare,
         span: 'md:col-span-2 lg:col-span-2',
     },
     {
         title: 'Design Engine',
-        description: 'Precision typography, fluid spacing, and custom glassmorphism layers crafted for premium aesthetics.',
+        description: 'Type-safe tokens, fluid spacing, and custom glassmorphism layers. Engineered for luxury.',
         icon: PenTool,
         span: 'md:col-span-1 lg:col-span-1',
     },
     {
         title: 'Quality Gate',
-        description: 'Rigorous automated review, comprehensive testing, and strict type-safety enforcement protocols.',
+        description: 'Meticulous automated review, testing, and strict error boundaries. No ‘any’ allowed.',
         icon: ShieldCheck,
         span: 'md:col-span-1 lg:col-span-1',
     },
     {
         title: 'SEO & Marketing',
-        description: 'Semantic structures, dynamic metadata, and programmatic growth engines engineered from day zero.',
+        description: 'Semantic structures, dynamic metadata, and programmatic distribution. Day zero setup.',
         icon: TrendingUp,
         span: 'md:col-span-2 lg:col-span-2',
     },
     {
         title: 'Research Layer',
-        description: 'Deep context assembly, competitor synthesis, and algorithmic market discovery and validation pipelines.',
+        description: 'Deep context assembly and algorithmic market discovery. Built to outsmart.',
         icon: BrainCircuit,
         span: 'md:col-span-2 lg:col-span-2',
     },
     {
         title: 'Media & Content',
-        description: 'Automated video generation, dynamic assets, and cross-platform narrative deployment infrastructure.',
+        description: 'Automated video wrappers, dynamic assets, and cross-platform narrative deployment.',
         icon: Video,
         span: 'md:col-span-1 lg:col-span-1',
     },

@@ -41,12 +41,12 @@ export default function FooterSection() {
                     </div>
 
                     <p className="text-text-muted text-lg md:text-xl max-w-2xl font-sans leading-relaxed">
-                        Own your development environment with the VibeSuite. A curated collection of agentic protocols for the modern builder. No subscriptions, just sovereignty.
+                        Reclaim your development environment with VibeSuite. A curated architecture of agentic protocols for the modern builder. No subscriptions. Absolute sovereignty.
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
                         <Button variant="primary" className="h-14 px-8 text-lg gap-2 group">
-                            Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            Deploy Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </Button>
                         <Button variant="glass" className="h-14 px-8 text-lg gap-2">
                             <Github size={20} /> Star on GitHub

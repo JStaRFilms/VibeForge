@@ -374,7 +374,7 @@ export default function LiveDemoSection() {
                                 </span>
                             </h3>
                             <p className="text-[var(--color-text-muted)] text-lg mb-8 leading-relaxed max-w-lg">
-                                No magic, just pure autonomous orchestration. Give VibeForge an objective and watch it write production-ready code with full type safety and modern aesthetics right before your eyes.
+                                No magic. Just pure orchestration. Define an objective and watch VibeForge write production-ready code with full type-safety and modern aesthetics.
                             </p>
                         </div>
 

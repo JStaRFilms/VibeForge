@@ -26,9 +26,9 @@ Conduct the final Copy Polish pass across all sections of the landing page.
 See `docs/DESIGN.md` for tone check. Phase 4 finalize step.
 
 ## Definition of Done
-- No generic AI slop text remains.
-- Tone is consistent.
-- `pnpm run build` succeeds without issues.
+- [x] No generic AI slop text remains.
+- [x] Tone is consistent.
+- [x] `pnpm run build` succeeds without issues.
 
 ## Constraints
 - Only modify text/content files or hardcoded strings inside components. Do not break layout.

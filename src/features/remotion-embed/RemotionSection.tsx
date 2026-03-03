@@ -17,11 +17,10 @@ export default function RemotionSection() {
 
                     <div className="flex flex-col justify-center space-y-6">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-serif">
-                            Visualizing the <span className="text-primary italic">VibeCode Protocol</span>
+                            Execute the <span className="text-primary italic">VibeCode Protocol</span>
                         </h2>
                         <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Watch how our specialized AI agents seamlessly transition from concept to deployed application.
-                            The VibeForge explainer demonstrates our core orchestrator breaking down tasks, spinning up agents, and finalizing builds.
+                            Observe our specialized AI agents as they transition seamlessly from concept to deployed application. The VibeForge core orchestrator breaks down tasks, spins up workers, and ships production builds.
                         </p>
                     </div>
 
