@@ -33,4 +33,4 @@ Conducted comprehensive quality and security pass across the entire VibeForge la
 
 ## Notes
 
-The `pnpm build` exit code shows 1 due to Remotion license notice going to stderr, but all compilation checks (✓ Compiled, ✓ Linting, ✓ Page data, ✓ Static pages, ✓ Build traces, ✓ Optimization) pass successfully.
+The `ppnpm build` exit code shows 1 due to Remotion license notice going to stderr, but all compilation checks (✓ Compiled, ✓ Linting, ✓ Page data, ✓ Static pages, ✓ Build traces, ✓ Optimization) pass successfully.

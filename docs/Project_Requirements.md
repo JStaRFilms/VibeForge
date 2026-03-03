@@ -56,4 +56,4 @@ Build a premium SaaS landing page for the **VibeCoding Protocol Suite** — a sy
 3. Scroll animations are smooth (no jank)
 4. Design is distinctly NOT "AI slop" — unique typography, intentional palette, asymmetric layouts
 5. `npx tsc --noEmit` passes with zero errors
-6. `npm run build` succeeds
+6. `ppnpm run build` succeeds

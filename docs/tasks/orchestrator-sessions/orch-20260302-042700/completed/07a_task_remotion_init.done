@@ -19,9 +19,9 @@ Manually constructed the `remotion` project inside the root directory and set up
 
 ## Verification Status
 
-- [x] TypeScript: PASS (`pnpm exec tsc --noEmit` inside `remotion`)
+- [x] TypeScript: PASS (`ppnpm exec tsc --noEmit` inside `remotion`)
 - [x] Dependencies installed (inc `@remotion/player` in main UI root).
 
 ## Notes
 
-- Remotion studio can be launched in the `remotion/` directory using `pnpm start`.
+- Remotion studio can be launched in the `remotion/` directory using `ppnpm start`.

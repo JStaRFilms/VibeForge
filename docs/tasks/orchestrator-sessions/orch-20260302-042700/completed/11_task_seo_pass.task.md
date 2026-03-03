@@ -27,9 +27,9 @@ Implement a full SEO Pass on the landing page.
 See the master plan. Phase 4 final polish. Ensure the brand name "VibeCoding Protocol Suite" is prioritized.
 
 ## Definition of Done
-- `layout.tsx` contains fully populated metadata object.
-- Structured Data compiles and renders.
-- `npx tsc --noEmit` passes.
+- [x] `layout.tsx` contains fully populated metadata object. ✅
+- [x] Structured Data compiles and renders. ✅
+- [x] `npx tsc --noEmit` passes. ✅
 
 ## Constraints
 - Maximize performance; ensure structured data script is correctly loaded via Next.js `<Script>` or standard dangerouslySetInnerHTML in `<head>`.

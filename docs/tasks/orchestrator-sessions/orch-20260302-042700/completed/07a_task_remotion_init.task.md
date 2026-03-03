@@ -27,7 +27,7 @@ This is part 1 of 3 for the Remotion build (Task 07a). We chose Option A (Full C
 
 ## Definition of Done
 - `remotion/` directory exists with working setup.
-- `npm run start` inside the remotion directory opens the Remotion Studio without errors.
+- `pnpm run start` inside the remotion directory opens the Remotion Studio without errors.
 - Basic placeholder composition defined in `Root.tsx`.
 
 ## Constraints

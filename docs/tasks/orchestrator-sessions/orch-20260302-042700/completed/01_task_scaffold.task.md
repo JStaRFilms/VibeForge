@@ -27,7 +27,7 @@ See `docs/autopsy_report.md` and `docs/Project_Requirements.md`. This is Phase 2
 ## Definition of Done
 - [x] `package.json` exists with required dependencies
 - [x] `src/app` structure exists
-- [x] `npm run dev` starts successfully without errors
+- [x] `pnpm run dev` starts successfully without errors
 - [x] Next.js default boilerplate removed from `page.tsx`
 
 ## Constraints

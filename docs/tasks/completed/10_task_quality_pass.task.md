@@ -20,7 +20,7 @@ Conduct a comprehensive Quality and Security Pass across the entire built landin
 ## ✅ Acceptance Criteria
 
 - [x] No P0 or P1 issues reported by J-Star or Security Audit.  ✅ Completed
-- [x] `npm run build` succeeds perfectly.  ✅ Completed  
+- [x] `pnpm run build` succeeds perfectly.  ✅ Completed  
 - [x] Any flagged UI/UX issues resolved.  ✅ Completed
 
 ## Results Summary
@@ -39,7 +39,7 @@ Conduct a comprehensive Quality and Security Pass across the entire built landin
 
 ### Verification
 - TypeScript: ✅ PASS (`npx tsc --noEmit`)
-- Build: ✅ PASS (`pnpm build` — all compilation checks passed)
+- Build: ✅ PASS (`ppnpm build` — all compilation checks passed)
 - Browser: ✅ No hydration errors, all 7 sections render correctly
 
 ## Constraints

@@ -372,7 +372,7 @@ You have received this Escalation Handoff Report. A local agent has failed to so
      - Render tokens as React `<span>` elements with inline styles — **eliminating the need for `dangerouslySetInnerHTML` entirely**.
      - This approach naturally handles JSX tags (detect `<` followed by a word), camelCase identifiers, and nested strings without HTML-escaping issues.
    - **Step 3:** Remove `dangerouslySetInnerHTML` from the `<code>` element and render the token spans directly as React children.
-   - **Step 4:** Verify with `pnpm tsc --noEmit`.
+   - **Step 4:** Verify with `ppnpm tsc --noEmit`.
 
 3. **Execute or Hand Off:** Implement the fix directly. The `useTypewriter` hook is fine and does not need changes. Only `LiveDemoSection.tsx` and `globals.css` need modification.
 

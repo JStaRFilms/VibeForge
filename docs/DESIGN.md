@@ -39,12 +39,12 @@
 | Display/Hero | Instrument Serif | Google Fonts | 400 (italic available) |
 | Headings | Satoshi | Fontshare CDN | 700 |
 | Body | General Sans | Fontshare CDN | 400, 500 |
-| Code | Geist Mono | `geist` npm / Vercel | 400 |
+| Code | Geist Mono | `geist` pnpm / Vercel | 400 |
 
 ### Loading Strategy
 - Instrument Serif → `next/font/google`
 - Satoshi + General Sans → CDN (`https://api.fontshare.com/v2/css?f[]=satoshi@700&f[]=general-sans@400;500&display=swap`)
-- Geist Mono → `geist` npm package or CDN
+- Geist Mono → `geist` pnpm package or CDN
 
 ## Layout
 

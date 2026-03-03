@@ -22,4 +22,4 @@ Built and integrated the Stats & Social Proof Bar section (`StatsBar.tsx`). The 
 
 ## Notes
 
-Used `pnpm tsc --noEmit` to verify type safety. The layout is fully responsive, stacked on mobile and inline on desktop, incorporating the VibeForge color tokens and typography constraints.
+Used `ppnpm tsc --noEmit` to verify type safety. The layout is fully responsive, stacked on mobile and inline on desktop, incorporating the VibeForge color tokens and typography constraints.

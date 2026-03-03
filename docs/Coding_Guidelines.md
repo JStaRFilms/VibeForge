@@ -28,8 +28,8 @@
 npx tsc --noEmit
 
 # Before handoff
-npm run build
-npm run lint
+pnpm run build
+pnpm run lint
 ```
 
 ## Naming

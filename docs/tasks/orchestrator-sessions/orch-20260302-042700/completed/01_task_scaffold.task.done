@@ -6,7 +6,7 @@
 
 ## Results
 
-Successfully scaffolded the VibeForge Next.js App Router project using pnpm, installed necessary dependencies (Tailwind v4, framer-motion, lucide-react, custom fonts), and configured global styles. The default app boilerplate has been replaced with a minimalist starting structure.
+Successfully scaffolded the VibeForge Next.js App Router project using ppnpm, installed necessary dependencies (Tailwind v4, framer-motion, lucide-react, custom fonts), and configured global styles. The default app boilerplate has been replaced with a minimalist starting structure.
 
 ## Files Created/Modified
 
