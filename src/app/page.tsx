@@ -4,6 +4,7 @@ import SkillsGrid from '@/features/skills-grid/SkillsGrid';
 import LiveDemoSection from '@/features/live-demo/LiveDemoSection';
 import RemotionSection from '@/features/remotion-embed/RemotionSection';
 import InstallSection from '@/features/install/InstallSection';
+import FooterSection from '@/features/footer/FooterSection';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SkillsGrid />
       <LiveDemoSection />
       <InstallSection />
+      <FooterSection />
     </main>
   );
 }
